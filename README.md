@@ -1,4 +1,4 @@
-#Projeto de Lista de Jogos
+#Projeto de Lista de Jogos#
 
 😎 Estou iniciando esse projeto na linguagem JAVA e SPRING BOOT, acompanhando as aulas do DevSuperior.
 
