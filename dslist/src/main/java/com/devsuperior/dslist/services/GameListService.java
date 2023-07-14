@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.dslist.dto.GameListDTO;
 import com.devsuperior.dslist.entities.GameList;
 import com.devsuperior.dslist.repositories.GameListRepository;
+import com.devsuperior.dslist.services.exceptions.EntityNotFoundException;
 
 
 @Service
@@ -19,8 +20,10 @@ public class GameListService {
 	
 	@Transactional(readOnly = true)
 	public List<GameListDTO> findAll(){
-		
 		List<GameList> result = gameListRepository.findAll();
+		if(result.isEmpty()) {
+			throw new EntityNotFoundException("Is empty!");
+		}
 		List<GameListDTO> dto = result.stream().map(x -> new GameListDTO(x)).toList();
 		return dto;
 		
