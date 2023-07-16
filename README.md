@@ -52,6 +52,8 @@ Após a relização dos testes no banco H2 os dados foram homologados para o Ban
 
 # Tecnologias utilizadas
 
+## Técnologias Backend
+
 - Java
 - Spring Boot
 - Spring Data JPA / Hibernate
@@ -59,6 +61,12 @@ Após a relização dos testes no banco H2 os dados foram homologados para o Ban
 - Postman
 - H2 Database
 - Postgres
+
+## Técnicas utilizadas
+
+- Padrão camadas
+- Padrão Rest
+
 
 # Como executar o projeto
 
