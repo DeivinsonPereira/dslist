@@ -13,7 +13,7 @@ import com.devsuperior.dslist.entities.GameList;
 import com.devsuperior.dslist.projections.GameMinProjection;
 import com.devsuperior.dslist.repositories.GameListRepository;
 import com.devsuperior.dslist.repositories.GameRepository;
-import com.devsuperior.dslist.services.exceptions.EntityNotFoundException;
+import com.devsuperior.dslist.services.exceptions.ResourceNotFoundException;
 
 
 @Service
@@ -28,7 +28,7 @@ public class GameService {
 	
 	@Transactional(readOnly = true)
 	public GameDTO findById(Long id) {
-		Game result = gameRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Resources not found!"));
+		Game result = gameRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Resources not found!"));
 		GameDTO dto = new GameDTO(result);
 		return dto;
 		
@@ -40,7 +40,7 @@ public class GameService {
 		
 		List<Game> result = gameRepository.findAll();
 		if(result.isEmpty()) {
-			throw new EntityNotFoundException("Is empty!");
+			throw new ResourceNotFoundException("Is empty!");
 		}
 		List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
 		return dto;
@@ -52,7 +52,7 @@ public class GameService {
 	public List<GameMinDTO> findByList(Long listId){
 		List<GameList> quantity = gameListRepository.findAll();		
 		if(listId == null || listId <= 0 || listId > quantity.size()) {
-			throw new EntityNotFoundException("Is empty!");
+			throw new ResourceNotFoundException("Is empty!");
 		}
 		List<GameMinProjection> result = gameRepository.searchByList(listId);
 		List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
