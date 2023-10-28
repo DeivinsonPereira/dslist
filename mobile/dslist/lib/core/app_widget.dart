@@ -1,5 +1,5 @@
 import 'package:dslist/core/app_colors.dart';
-import 'package:dslist/pages/page_home.dart';
+import 'package:dslist/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -10,13 +10,12 @@ class AppWidget extends StatelessWidget {
     final ThemeData theme = ThemeData();
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'dslist',
-        theme: ThemeData(
-          colorScheme: theme.colorScheme.copyWith(
-            primary: AppColors.primary
-          ),
-        ),
-      home: PageHome(),  
-      );
+      theme: ThemeData(
+        colorScheme: theme.colorScheme.copyWith(primary: AppColors.primary),
+      ),
+      home: HomePage(),
+    );
   }
 }
