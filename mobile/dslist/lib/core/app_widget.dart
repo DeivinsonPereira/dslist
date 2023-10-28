@@ -1,5 +1,5 @@
 import 'package:dslist/core/app_colors.dart';
-import 'package:dslist/pages/home_page.dart';
+import 'package:dslist/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
