@@ -1,7 +1,7 @@
 import 'package:dslist/core/app_methods.dart';
 import 'package:dslist/core/app_requisition.dart';
-import 'package:dslist/pages/game_lists/aventura_rpg.dart';
-import 'package:dslist/pages/game_lists/jogos_plataforma.dart';
+import 'package:dslist/pages/Categorys/aventura_rpg.dart';
+import 'package:dslist/pages/Categorys/jogos_plataforma.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

@@ -1,4 +1,5 @@
 import 'package:dslist/core/app_requisition.dart';
+import 'package:dslist/pages/Games/game_page.dart';
 import 'package:flutter/material.dart';
 
 Widget gameList(String url) {
@@ -37,7 +38,15 @@ Widget gameCard(int id) {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    var idGame = snapshot.data![index]['id'];
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => GamePage(idGame: idGame),
+                      ),
+                    );
+                  },
                   child: ListTile(
                     leading: gameList(
                       snapshot.data![index]['imgUrl'],

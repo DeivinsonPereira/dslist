@@ -18,7 +18,10 @@ class _JogosPlataforma extends State<JogosPlataforma> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Jogos de Plataforma'),
+        title: const Text(
+          'Jogos de Plataforma',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
       body: gameCard(id),
     );
