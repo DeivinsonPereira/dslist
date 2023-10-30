@@ -1,20 +1,26 @@
+import 'package:dslist/core/app_methods.dart';
 import 'package:flutter/material.dart';
 
 class JogosPlataforma extends StatefulWidget {
-  const JogosPlataforma({super.key, required id});
+  final int id;
+  const JogosPlataforma({Key? key, required this.id}) : super(key: key);
 
   @override
-  State<JogosPlataforma> createState() => _JogosPlataforma();
+  State<JogosPlataforma> createState() => _JogosPlataforma(id);
 }
 
 class _JogosPlataforma extends State<JogosPlataforma> {
+  final int id;
+
+  _JogosPlataforma(this.id);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Jogos de Plataforma'),
+        title: const Text('Jogos de Plataforma'),
       ),
-      body: Text('aqui vem os jogos'),
+      body: gameCard(id),
     );
   }
 }

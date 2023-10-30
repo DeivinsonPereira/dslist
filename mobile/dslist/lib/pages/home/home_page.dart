@@ -58,11 +58,11 @@ class _HomePageState extends State<HomePage> {
                         //condição feita apenas para esse projeto, pois, não havia imagens no banco de dados.
 
                         if (snapshot.data![index]['name'] == 'Aventura e RPG') {
-                          categoryImage = gameCard(
+                          categoryImage = gameList(
                               'https://cdn.pixabay.com/photo/2017/08/01/14/42/knight-2565957_1280.jpg');
                         } else if (snapshot.data![index]['name'] ==
                             'Jogos de plataforma') {
-                          categoryImage = gameCard(
+                          categoryImage = gameList(
                               'https://cdn.pixabay.com/photo/2016/07/30/21/03/mario-1558012_1280.jpg');
                         } else {
                           categoryImage = Image.asset('');
