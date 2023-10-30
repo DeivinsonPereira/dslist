@@ -7,6 +7,16 @@ Future<List> pegarGames() async {
   if (response.statusCode == 200) {
     return jsonDecode(utf8.decode(response.bodyBytes));
   } else {
-    throw Exception('Falha ao carregar os games');
+    throw Exception('Falha ao carregar os games.');
+  }
+}
+
+Future<List<dynamic>> pegarGamesByCategory(int id) async {
+  var url = Uri.parse('http://10.0.2.2:8080/lists/$id/games');
+  var response = await http.get(url);
+  if (response.statusCode == 200) {
+    return jsonDecode(utf8.decode(response.bodyBytes));
+  } else {
+    throw Exception('Falha ao carregar os games.');
   }
 }

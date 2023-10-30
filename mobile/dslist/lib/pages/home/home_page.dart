@@ -1,5 +1,7 @@
 import 'package:dslist/core/app_methods.dart';
 import 'package:dslist/core/app_requisition.dart';
+import 'package:dslist/pages/game_lists/aventura_rpg.dart';
+import 'package:dslist/pages/game_lists/jogos_plataforma.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,17 +26,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(25),
-          ),
-        ),
       ),
       body: Column(
         children: [
           const Padding(
             padding: EdgeInsets.only(top: 40.0, bottom: 20),
-            
             child: Text(
               'Escolha uma categoria e aperte para ver os jogos.',
               style: TextStyle(
@@ -60,6 +56,7 @@ class _HomePageState extends State<HomePage> {
                       itemBuilder: (context, index) {
                         Widget categoryImage;
                         //condição feita apenas para esse projeto, pois, não havia imagens no banco de dados.
+
                         if (snapshot.data![index]['name'] == 'Aventura e RPG') {
                           categoryImage = gameCard(
                               'https://cdn.pixabay.com/photo/2017/08/01/14/42/knight-2565957_1280.jpg');
@@ -75,10 +72,24 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               if (snapshot.data![index]['name'] ==
                                   'Aventura e RPG') {
-                                print('clicou em Aventura e RPG');
+                                int id = snapshot.data![index]['id'];
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        JogosAventuraRPG(id: id),
+                                  ),
+                                );
                               } else if (snapshot.data![index]['name'] ==
                                   'Jogos de plataforma') {
-                                print('clicou em Jogos de plataforma');
+                                var id = snapshot.data![index]['id'];
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        JogosPlataforma(id: id),
+                                  ),
+                                );
                               }
                             },
                             child: ListTile(

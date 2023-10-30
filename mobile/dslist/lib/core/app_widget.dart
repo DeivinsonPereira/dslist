@@ -14,6 +14,13 @@ class AppWidget extends StatelessWidget {
       title: 'dslist',
       theme: ThemeData(
         colorScheme: theme.colorScheme.copyWith(primary: AppColors.primary),
+        appBarTheme: AppBarTheme(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(25),
+            ),
+          ),
+        ),
       ),
       home: HomePage(),
     );
